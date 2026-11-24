@@ -5,10 +5,9 @@ import pygame as pg
 
 os.chdir(os.path.dirname(os.path.abspath(__file__)))
 
-#test
 def main():
     pg.display.set_caption("はじめてのPygame")
-    screen = pg.display.set_mode((800, 600))
+    screen = pg.display.set_mode((800, 600)) #.set_mode(横幅,縦幅)
     clock = pg.time.Clock()
     font = pg.font.Font(None, 80)
 
@@ -21,7 +20,7 @@ def main():
         for event in pg.event.get():
             if event.type == pg.QUIT: return
         
-        txt = font.render(str(tmr), True, (255, 255, 255))
+        txt = font.render(str(tmr), True, (255, 255, 255)) #文字を描画した255四方のsurfaceを生成
         screen.fill((50, 50, 50))
         screen.blit(txt, [300, 200])
         screen.blit(enn, [100, 400])
