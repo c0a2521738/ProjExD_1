@@ -5,7 +5,7 @@ import pygame as pg
 
 os.chdir(os.path.dirname(os.path.abspath(__file__)))
 
-
+#test
 def main():
     pg.display.set_caption("はじめてのPygame")
     screen = pg.display.set_mode((800, 600))
