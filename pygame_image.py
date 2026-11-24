@@ -24,20 +24,21 @@ def main():
         for event in pg.event.get():
             if event.type == pg.QUIT: return
         
-        #毎フレーム左に移動(こうかとん)
-        kk_rct.move_ip((-1, 0))
-        
         #押下キーに応じて移動(こうかとん)
         key_lst = pg.key.get_pressed()
+        # ↓ x,y方向の移動量
+        x_delta = -1 # ← 初期値-1(キー入力なしで左に流れる)
+        y_delta = 0
         if key_lst[pg.K_UP]:
-            kk_rct.move_ip((0,-1))
+            y_delta -=1
         if key_lst[pg.K_DOWN]:
-            kk_rct.move_ip((0,1))
+            y_delta +=1
         if key_lst[pg.K_LEFT]:
-            kk_rct.move_ip((-1,0))
+            x_delta -= 1
         if key_lst[pg.K_RIGHT]:
-            kk_rct.move_ip((2,0))
-
+            x_delta += 2
+        kk_rct.move_ip(x_delta,y_delta)
+        
         #背景描画
         x = tmr % 3200                          # 0〜3199
         screen.blit(bg_img,  [-x, 0])           # original1
